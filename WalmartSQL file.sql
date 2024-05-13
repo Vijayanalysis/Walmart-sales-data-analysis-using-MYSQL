@@ -198,4 +198,16 @@ from walmart_sales
 group by customer_type
 order by total_revenue desc;
 
--- 
+-- Which city has the largest tax/VAT percent?
+select city, round(avg(tax_5),1) as vat_percentage
+from walmart_sales
+group by city
+order by vat_percentage desc;
+
+-- Which customer type pays the most in VAT?
+SELECT
+	customer_type,
+	round(AVG(tax_5),2) AS total_tax
+FROM walmart_sales
+GROUP BY customer_type
+ORDER BY total_tax;
